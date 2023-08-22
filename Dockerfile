@@ -1,4 +1,5 @@
 FROM openjdk:8
-EXPOSE 8082
-ADD target/petclinic.war petclinic.war
-ENTRYPOINT ["java","-jar","/petclinic.war"]
+EXPOSE 80
+WORKDIR /app
+COPY target/petclinic.war /app/petclinic.war
+ENTRYPOINT ["java","-jar","/app/petclinic.war"]
